@@ -37,10 +37,11 @@ public class Main {
         //calling all available methods for the child and pet
         child.describePet();
         child.greetPet();
+        child.feedPet(false);
+        System.out.printf("%s\n", hamster);
         hamster.respond();
         hamster.eat();
         hamster.foul();
-        child.feedPet(false);
 
         //Second Family
         System.out.println();
@@ -72,26 +73,26 @@ public class Main {
         //calling all available methods for the child and pet
         child2.describePet();
         child2.greetPet();
+        child2.feedPet(true);
         System.out.printf("%s\n", cat);
         cat.respond();
         cat.eat();
         cat.foul();
-        child2.feedPet(true);
 
         child3.describePet();
         child3.greetPet();
+        child3.feedPet(false);
         System.out.printf("%s\n", dog);
         dog.respond();
         dog.eat();
         dog.foul();
-        child3.feedPet(false);
 
         child4.describePet();
         child4.greetPet();
+        child4.feedPet(false);
         System.out.printf("%s\n", hamster);
         hamster.respond();
         hamster.eat();
         hamster.foul();
-        child4.feedPet(false);
     }
 }

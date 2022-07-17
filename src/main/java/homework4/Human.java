@@ -1,6 +1,5 @@
 package homework4;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Human {
@@ -41,10 +40,6 @@ public class Human {
     public Human() {
     }
 
-    public void greetPet() {
-        System.out.println("Hello," + pet.nickname);
-    }
-
     @Override
     public String toString() {
         if (this.mother == null && this.father == null && this.pet == null) {
@@ -73,6 +68,10 @@ public class Human {
                     ",pet=" + pet +
                     '}';
         }
+    }
+
+    public void greetPet() {
+        System.out.println("Hello," + pet.nickname);
     }
 
     public void describePet() {
