@@ -2,6 +2,7 @@ package homework4;
 
 public class Main {
     public static void main(String[] args) {
+        boolean isFeedTime;
         String[][] schedule = new String[3][2];
         schedule[0][0] = "Sunday";
         schedule[0][1] = "watch a film";
@@ -35,7 +36,7 @@ public class Main {
         // toString() is called implicitly
         System.out.printf("%s's Family: \n%s \n%s \n%s\n", male.surname, male, female, child);
         //calling all available methods for the child and pet
-        callingMethodsFromClass(child, cat);
+        callingMethodsFromClass(child, cat,false);
 
         //Second Family
         Human male2 = new Human("Vito", "Corleone", 1887);
@@ -64,19 +65,19 @@ public class Main {
 
         //calling all available methods for the child and pet
         System.out.println(child2);
-        callingMethodsFromClass(child2, cat);
+        callingMethodsFromClass(child2, cat,true);
 
         System.out.println(child3);
-        callingMethodsFromClass(child3, dog);
+        callingMethodsFromClass(child3, dog,false);
 
         System.out.println(child4);
-        callingMethodsFromClass(child4, hamster);
+        callingMethodsFromClass(child4, hamster,false);
     }
 
-    public static void callingMethodsFromClass(Human child, Pet pet) {
+    public static void callingMethodsFromClass(Human child, Pet pet, boolean isFeedTime) {
         child.describePet();
         child.greetPet();
-        child.feedPet(true);
+        child.feedPet(isFeedTime);
         System.out.printf("%s\n", pet);
         pet.respond();
         pet.eat();
