@@ -75,7 +75,7 @@ public class Human {
     }
 
     public void describePet() {
-        System.out.print("\nI have a " + pet.species + ", he is " + pet.age + " years old, he is ");
+        System.out.print("I have a " + pet.species + ", he is " + pet.age + " years old, he is ");
         if (pet.trickLevel > 50) System.out.print("very sly\n");
         else System.out.print("almost not sly\n");
     }

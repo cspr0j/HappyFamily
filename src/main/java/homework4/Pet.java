@@ -44,6 +44,6 @@ public class Pet {
     }
 
     public void foul() {
-        System.out.println("I need to cover it up");
+        System.out.println("I need to cover it up\n");
     }
 }

@@ -35,18 +35,11 @@ public class Main {
         // toString() is called implicitly
         System.out.printf("%s's Family: \n%s \n%s \n%s\n", male.surname, male, female, child);
         //calling all available methods for the child and pet
-        child.describePet();
-        child.greetPet();
-        child.feedPet(false);
-        System.out.printf("%s\n", hamster);
-        hamster.respond();
-        hamster.eat();
-        hamster.foul();
+        callingMethodsFromClass(child, cat);
 
         //Second Family
-        System.out.println();
         Human male2 = new Human("Vito", "Corleone", 1887);
-        male2.iq = 95;
+        male2.iq = 90;
         male2.pet = cat;
         Human female2 = new Human("Carmela", "Corleone", 1897);
         female2.iq = 60;
@@ -54,7 +47,7 @@ public class Main {
         Human child2 = new Human("Santino", "Corleone", 1916, female2, male2);
         child2.iq = 78;
         child2.pet = cat;
-        Human child3 = new Human("Michael", "Corleone", 1920, 90, dog, female2, male2, schedule);
+        Human child3 = new Human("Michael", "Corleone", 1920, 87, dog, female2, male2, schedule);
 
         Human child4 = new Human();
         child4.name = "Frederico";
@@ -67,32 +60,26 @@ public class Main {
 
         // Display second family
         // toString() is called implicitly
-        System.out.printf("%s's Family: \n%s \n%s \n%s" +
-                " \n%s \n%s\n", male2.surname, male2, female2, child2, child3, child4);
+        System.out.printf("%s's Family: \n%s \n%s\n", male2.surname, male2, female2);
 
         //calling all available methods for the child and pet
-        child2.describePet();
-        child2.greetPet();
-        child2.feedPet(true);
-        System.out.printf("%s\n", cat);
-        cat.respond();
-        cat.eat();
-        cat.foul();
+        System.out.println(child2);
+        callingMethodsFromClass(child2, cat);
 
-        child3.describePet();
-        child3.greetPet();
-        child3.feedPet(false);
-        System.out.printf("%s\n", dog);
-        dog.respond();
-        dog.eat();
-        dog.foul();
+        System.out.println(child3);
+        callingMethodsFromClass(child3, dog);
 
-        child4.describePet();
-        child4.greetPet();
-        child4.feedPet(false);
-        System.out.printf("%s\n", hamster);
-        hamster.respond();
-        hamster.eat();
-        hamster.foul();
+        System.out.println(child4);
+        callingMethodsFromClass(child4, hamster);
+    }
+
+    public static void callingMethodsFromClass(Human child, Pet pet) {
+        child.describePet();
+        child.greetPet();
+        child.feedPet(true);
+        System.out.printf("%s\n", pet);
+        pet.respond();
+        pet.eat();
+        pet.foul();
     }
 }
