@@ -110,22 +110,22 @@ public class Main {
         childEq.setFamily(family1);
 
         // uncomment for output
-        // System.out.println(male.equals(maleEquals));//true
-        // System.out.println(maleEquals.equals(male));//true
-        // System.out.println(family1.equals(familyEq));//true
-        // System.out.println(familyEq.equals(family1));//true
-        // System.out.println(dog.equals(dogEq));//true
-        // System.out.println(dogEq.equals(dog));//true
+        //System.out.println(male.equals(maleEquals));//true
+        //System.out.println(maleEquals.equals(male));//true
+        //System.out.println(family1.equals(familyEq));//true
+        //System.out.println(familyEq.equals(family1));//true
+        //System.out.println(dog.equals(dogEq));//true
+        //System.out.println(dogEq.equals(dog));//true
 
     }
 
     private static void callingMethodsFromClas(Human human, boolean isFeedTime, Pet... pet) {
-        System.out.printf("Hello, I'm %s %s\n",human.getName(),human.getSurname());
+        System.out.printf("Hello, I'm %s %s\n", human.getName(), human.getSurname());
         human.describePet();
         System.out.printf("%s\n", Arrays.toString(pet));
         human.greetPet();
         human.feedPet(isFeedTime);
-        for (Pet pets: pet) {
+        for (Pet pets : pet) {
             pets.respond();
             pets.eat();
             pets.foul();

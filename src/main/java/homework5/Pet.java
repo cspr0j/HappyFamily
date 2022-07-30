@@ -9,10 +9,12 @@ public class Pet {
     static {
         System.out.println("Pet class is being loaded");
     }
+
     // displays each time
     {
         System.out.println("New Pet type  object is created");
     }
+
     private String species;
     private String nickname;
     private int age;

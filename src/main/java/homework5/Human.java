@@ -9,10 +9,12 @@ public class Human {
     static {
         System.out.println("Human class is being loaded");
     }
+
     // displays each time
     {
         System.out.println("New Human type  object is created");
     }
+
     private String name;
     private String surname;
     private Family family;
@@ -165,14 +167,15 @@ public class Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        System.out.println();
         return year == human.year &&
                 name.equals(human.name) &&
                 surname.equals(human.surname) &&
                 (
                         family == null || human.family != null &&
                         family.getMother().name.equals(human.family.getMother().name) &&
+                        family.getMother().surname.equals(human.family.getMother().surname) &&
                         family.getFather().name.equals(human.family.getFather().name) &&
+                        family.getFather().surname.equals(human.family.getFather().surname) &&
                         Arrays.equals(family.getChildren(), human.getFamily().getChildren())
                 );
     }

@@ -8,10 +8,12 @@ public class Family {
     static {
         System.out.println("Family class is being loaded");
     }
+
     // displays each time
     {
         System.out.println("New Family type  object is created");
     }
+
     private Human mother;
     private Human father;
     private Human[] children;
