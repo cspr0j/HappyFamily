@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        boolean isFeedTime;
         String[][] schedule = new String[3][2];
         schedule[0][0] = "Sunday";
         schedule[0][1] = "watch a film";
@@ -23,7 +22,7 @@ public class Main {
         hamster.setSpecies("hamster");
         hamster.setNickname("Bob");
         hamster.setAge(1);
-        cat.setTrickLevel(20);
+        hamster.setTrickLevel(20);
         hamster.setHabits(new String[]{"eat", "sleep", "run"});
 
         // Create first family members
@@ -54,17 +53,20 @@ public class Main {
         Human female2 = new Human("Carmela", "Corleone", 1897);
         female2.setIq(60);
         // Create second family
-        Family family2 = new Family(male2, female2);
-        family2.setPet(dog);
+        Family family2 = new Family(male2, female2,dog);
         family2.addPet(cat);
-        family2.addPet(hamster);
+        family2.addPet(hamster);;
 
         // Create  children
         Human child2 = new Human("Santino", "Corleone", family2, 1916);
         child2.setIq(78);
         Human child3 = new Human("Michael", "Corleone", family2, 1920, 87, schedule);
         Human child4 = new Human();
-        setInfo(child4, "Frederico", "Corleone", 1929, 60, family2);
+        child4.setName("Frederico");
+        child4.setSurname("Corleone");
+        child4.setYear(1929);
+        child4.setIq(60);
+        child4.setFamily(family2);
 
         // using some methods for specify family
         family2.setChildren(child2);
@@ -72,7 +74,7 @@ public class Main {
         family2.addChild(child4);
         //display family
         System.out.println(family2);
-        // call methods for describe pet or smth else
+        // call methods for describe pet and etc
         callingMethodsFromClas(child2, true, family2.getPet());
 
         // Create third family members
@@ -84,12 +86,14 @@ public class Main {
         female3.setSchedule(schedule);
 
         // Create third family
-        Family family3 = new Family(male3, female3);
+        Family family3 = new Family();
+        family3.setFather(male3);
+        family3.setMother(female3);
         family3.setPet(hamster);
         //display family
         System.out.println(family3);
 
-        // call methods for describe pet or smth else
+        // call methods for describe pet and etc
         callingMethodsFromClas(male3, false, family3.getPet());
 
 
@@ -130,13 +134,5 @@ public class Main {
             pets.eat();
             pets.foul();
         }
-    }
-
-    private static void setInfo(Human human, String name, String surname, int year, int iq, Family family) {
-        human.setName("Frederico");
-        human.setSurname("Corleone");
-        human.setYear(1929);
-        human.setIq(60);
-        human.setFamily(family);
     }
 }

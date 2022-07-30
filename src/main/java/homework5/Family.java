@@ -30,7 +30,7 @@ public class Family {
         this.father.setFamily(this);
     }
 
-    public Family(Human father, Human mother, Pet[] pet) {
+    public Family(Human father, Human mother, Pet... pet) {
         this.mother = mother;
         this.father = father;
         children = new Human[0];
@@ -51,10 +51,12 @@ public class Family {
 
     public void setMother(Human mother) {
         this.mother = mother;
+        this.mother.setFamily(this);
     }
 
     public void setFather(Human father) {
         this.father = father;
+        this.father.setFamily(this);
     }
 
     public Human getFather() {
