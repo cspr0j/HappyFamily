@@ -56,7 +56,6 @@ public class Main {
         Family family2 = new Family(male2, female2, dog);
         family2.addPet(cat);
         family2.addPet(hamster);
-        ;
 
         // Create  children
         Human child2 = new Human("Santino", "Corleone", family2, 1916);
