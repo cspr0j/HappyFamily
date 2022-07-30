@@ -53,9 +53,10 @@ public class Main {
         Human female2 = new Human("Carmela", "Corleone", 1897);
         female2.setIq(60);
         // Create second family
-        Family family2 = new Family(male2, female2,dog);
+        Family family2 = new Family(male2, female2, dog);
         family2.addPet(cat);
-        family2.addPet(hamster);;
+        family2.addPet(hamster);
+        ;
 
         // Create  children
         Human child2 = new Human("Santino", "Corleone", family2, 1916);
