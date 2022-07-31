@@ -45,7 +45,6 @@ public class Pet {
         this.species = species;
     }
 
-
     //getters and setters
     public String getNickname() {
         return nickname;

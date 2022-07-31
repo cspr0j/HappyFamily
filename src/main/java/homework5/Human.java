@@ -186,4 +186,5 @@ public class Human {
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }
+
 }
