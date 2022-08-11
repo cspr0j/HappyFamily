@@ -24,7 +24,7 @@ public class Main {
         cat.setHabits(new String[]{"eat", "sleep"});
 
         Human man = new Man("Johnathan","Smith",1990,100,schedule);
-        Human woman = new Woman("Chrissy","Smith",1998,100,schedule);
+        Human woman = new Woman("Chrissy","Smith",1998,80,schedule);
         Family family = new Family(man,woman);
         family.bornChild();
         family.setPet(dog,cat);

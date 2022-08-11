@@ -220,7 +220,7 @@ public class Family implements HumanCreator {
         } else
             child = new Woman();
 
-        // Here it is best to use HashMap,
+        // Here it is best to use HashMap to store names,
         // because it allows you to choose by key
         // (rndNum - by which the sex of the child is determined)
         names.put(0, Arrays.asList("Stanley","James","Bradley","Michael")); // for male
