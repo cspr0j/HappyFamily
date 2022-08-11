@@ -1,4 +1,4 @@
-package homework5;
+package homework6;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -22,6 +22,8 @@ public class Human {
     private int iq;
     private String[][] schedule;
 
+    private boolean flag;
+
 
     // ctor for parents
     public Human(String name, String surname, int year) {
@@ -30,13 +32,21 @@ public class Human {
         this.year = year;
     }
 
+    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.schedule = schedule;
+    }
+
     // ctor for children
     public Human(String name, String surname, Family family, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.family = family;
-        family.addChild(this);
+        //family.addChild(this);
     }
 
     // ctor for children
@@ -47,7 +57,7 @@ public class Human {
         this.year = year;
         this.iq = iq;
         this.schedule = schedule;
-        family.addChild(this);
+        //family.addChild(this);
     }
 
     public Human() {
@@ -104,6 +114,13 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
 
     //methods
     public void greetPet() {
@@ -115,7 +132,7 @@ public class Human {
 
     public void describePet() {
         for (int i = 0; i < family.getPet().length; i++) {
-            String species = family.getPet(i).getSpecies();
+            Species species = family.getPet(i).getSpecies();
             int age = family.getPet(i).getAge();
             int trickLevel = family.getPet(i).getTrickLevel();
             System.out.print("I have a " + species + ", he is " + age + " years old, he is ");
@@ -150,10 +167,12 @@ public class Human {
                 .append(", surname='").append(surname).append('\'')
                 .append(", year=").append(year)
                 .append(", iq=").append(iq);
-        if (family.isFlag()) {
+        if (family != null && family.isFlag()) {
             str.append(", mother=").append(family.getMother().name)
-                    .append(", father=").append(family.getFather().name)
-                    .append(", pet=").append(Arrays.toString(family.getPet()));
+                    .append(", father=").append(family.getFather().name);
+            if (family.getPet().length != 0) {
+             str.append(", pet=").append(Arrays.toString(family.getPet()));
+        }
         }
         if (schedule != null) {
             str.append(", schedule=").append(Arrays.deepToString(schedule))
@@ -161,6 +180,7 @@ public class Human {
         }
         return str.toString();
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -172,19 +192,25 @@ public class Human {
                 surname.equals(human.surname) &&
                 (
                         family == null || human.family != null &&
-                        family.getMother().name.equals(human.family.getMother().name) &&
-                        family.getMother().surname.equals(human.family.getMother().surname) &&
-                        family.getFather().name.equals(human.family.getFather().name) &&
-                        family.getFather().surname.equals(human.family.getFather().surname) &&
-                        Objects.equals(Arrays.toString(family.getChildren()), Arrays.toString(human.getFamily().getChildren()))
+                                family.getMother().name.equals(human.family.getMother().name) &&
+                                family.getMother().surname.equals(human.family.getMother().surname) &&
+                                family.getFather().name.equals(human.family.getFather().name) &&
+                                family.getFather().surname.equals(human.family.getFather().surname) &&
+                                Objects.equals(Arrays.toString(family.getChildren()), Arrays.toString(human.getFamily().getChildren()))
                 );
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, family, year, iq);
+        int result = Objects.hash(name, surname,
+                family != null ? family.toString() : null, year, iq);
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }
 
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Human object is deleted by Garbage Collector");
+    }
 }
