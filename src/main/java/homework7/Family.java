@@ -213,7 +213,7 @@ public class Family implements HumanCreator {
         Random random = new Random();
         // The sex of the child is defined casually with the 50%/50% probability. 0 or 1 - 50% chance
         int rndNum = random.nextInt(2);
-        System.out.println(rndNum);
+
         Human child;
         if (rndNum == 0) {
             child = new Man();
