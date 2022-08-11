@@ -114,12 +114,12 @@ public class Main {
         childEq.setFamily(family1);
 
         // uncomment for output
-        System.out.println(male.equals(maleEquals));//true
-        System.out.println(maleEquals.equals(male));//true
-        System.out.println(family1.equals(familyEq));//true
-        System.out.println(familyEq.equals(family1));//true
-        System.out.println(dog.equals(dogEq));//true
-        System.out.println(dogEq.equals(dog));//true
+//        System.out.println(male.equals(maleEquals));//true
+//        System.out.println(maleEquals.equals(male));//true
+//        System.out.println(family1.equals(familyEq));//true
+//        System.out.println(familyEq.equals(family1));//true
+//        System.out.println(dog.equals(dogEq));//true
+//        System.out.println(dogEq.equals(dog));//true
 
     }
 
