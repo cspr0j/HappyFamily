@@ -36,7 +36,7 @@ public abstract class Pet {
     private int trickLevel;
     private String[] habits;
 
-    public Pet( String nickname) {
+    public Pet(String nickname) {
         this.nickname = nickname;
     }
 
