@@ -1,12 +1,19 @@
-package homework6;
+package homework7;
 
-import java.util.Arrays;
-import java.util.Objects;
+import homework7.Human.Human;
+import homework7.Human.HumanCreator;
+import homework7.Human.Man;
+import homework7.Human.Woman;
+import homework7.Pets.Pet;
+
+import java.util.*;
 
 
-public class Family {
+public class Family implements HumanCreator {
+    static final Map<Integer,List<String>> names;
     // displays only 1 time
     static {
+        names = new HashMap<>();
         System.out.println("Family class is being loaded");
     }
 
@@ -199,5 +206,38 @@ public class Family {
     @Override
     protected void finalize() throws Throwable {
         System.out.println("Family object is deleted by Garbage Collector");
+    }
+
+    @Override
+    public Human bornChild() {
+        Random random = new Random();
+        // The sex of the child is defined casually with the 50%/50% probability. 0 or 1 - 50% chance
+        int rndNum = random.nextInt(2);
+        System.out.println(rndNum);
+        Human child;
+        if (rndNum == 0) {
+            child = new Man();
+        } else
+            child = new Woman();
+
+        // Here it is best to use HashMap,
+        // because it allows you to choose by key
+        // (rndNum - by which the sex of the child is determined)
+        names.put(0, Arrays.asList("Stanley","James","Bradley","Michael")); // for male
+        names.put(1,Arrays.asList("Samantha","Vivian","Jess")); // for female
+
+        int size = names.get(rndNum).size();
+        child.setName(names.get(rndNum)
+                            .get(random.nextInt(size)));
+
+        child.setSurname(father.getSurname());
+        int iq = (father.getIq() + mother.getIq()) / 2;
+        child.setIq(iq);
+        child.setYear(2022);
+
+        child.setFamily(this);
+        this.setChildren(child);
+
+        return child;
     }
 }

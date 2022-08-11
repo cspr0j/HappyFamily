@@ -1,17 +1,31 @@
-package homework6;
+package homework7.Pets;
 
-import java.util.Arrays;
-import java.util.Objects;
+import homework7.Species;
+
+import java.util.*;
 
 
-public class Pet {
+public abstract class Pet {
+    static final List<String> list = new ArrayList<>();
+
     // displays only 1 time
     static {
         System.out.println("Pet class is being loaded");
+
+        // 'load' all species to list
+        for (int i = 0; i < Species.values().length; i++) {
+            list.add(Species.values()[i].toString());
+        }
     }
 
     // displays each time
     {
+        String name = getClass().getSimpleName().toUpperCase();
+        // 'auto' assigning
+        if (list.contains(name)) {
+            species = Species.valueOf(name);
+        }else
+            species = Species.UNKNOWN;
         System.out.println("New Pet type  object is created");
     }
 
@@ -22,13 +36,11 @@ public class Pet {
     private int trickLevel;
     private String[] habits;
 
-    public Pet(Species species, String nickname) {
-        this.species = species;
+    public Pet( String nickname) {
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
+    public Pet(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -85,13 +97,7 @@ public class Pet {
         System.out.println("I am eating");
     }
 
-    public void respond() {
-        System.out.println("Hello, owner. I am - " + nickname + ". I miss you!");
-    }
-
-    public void foul() {
-        System.out.println("I need to cover it up\n");
-    }
+    public abstract void respond();
 
     @Override
     public String toString() {

@@ -1,8 +1,8 @@
-package homework6.tests;
+package homework7.tests;
 
-import homework6.DayOfWeek;
-import homework6.Family;
-import homework6.Human;
+import homework7.DayOfWeek;
+import homework7.Family;
+import homework7.Human.Human;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
