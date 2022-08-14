@@ -26,7 +26,7 @@ public class Family implements HumanCreator {
     private Human father;
     private List<Human> children;
 
-    private Set<Pet> pet;  //it's an Array, because family can have >1 pet
+    private Set<Pet> pet;
     private boolean flag;
 
     public Family(Human father, Human mother) {
