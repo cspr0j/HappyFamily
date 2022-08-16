@@ -24,8 +24,6 @@ public class Main {
         Man man = new Man("Johnathan", "Smith", 1990, 100, schedule);
         Woman woman = new Woman("Chrissy", "Smith", 1998, 80, schedule);
         Family family = new Family(man, woman);
-        //family.bornChild();
-        //family.setPet(new HashSet<>(Arrays.asList(dog, cat)));
 
         FamilyController controller = new FamilyController();
 
