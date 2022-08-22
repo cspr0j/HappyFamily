@@ -5,7 +5,9 @@ import homework10.Human.HumanCreator;
 import homework10.Human.Man;
 import homework10.Human.Woman;
 import homework10.Pets.Pet;
+import homework10.date.Converter;
 
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -178,7 +180,7 @@ public class Family implements HumanCreator {
     }
 
     @Override
-    public Human bornChild() {
+    public Human bornChild() throws ParseException {
         Random random = new Random();
         // The sex of the child is defined casually with the 50%/50% probability. 0 or 1 - 50% chance
         int rndNum = random.nextInt(2);
@@ -202,7 +204,15 @@ public class Family implements HumanCreator {
         child.setSurname(father.getSurname());
         int iq = (father.getIq() + mother.getIq()) / 2;
         child.setIq(iq);
-        child.setYear(2022);
+
+        Converter converter = new Converter();
+        double num =  ((Math.random() * 0.45) + 0.52);
+
+        String year = converter
+                .converterToString((long) (Calendar.getInstance()
+                        .getTimeInMillis() * num));
+
+        child.setBirthDate(year);
 
         child.setFamily(this);
         this.addChild(child);

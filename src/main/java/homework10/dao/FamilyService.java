@@ -78,6 +78,7 @@ public class FamilyService {
         Converter converter = new Converter();
         String year = converter.converterToString((long) (Calendar.getInstance()
                 .getTimeInMillis() * ((Math.random() * 0.3) + 0.7)));
+
         String surname = family.getFather().getSurname();
         Human child;
 
@@ -95,13 +96,21 @@ public class FamilyService {
         return familyDao.saveFamily(family);
     }
 
-    public void deleteAllChildrenOlderThen(int age) {
+    public void deleteAllChildrenOlderThen(int age) throws ParseException {
+        Calendar calendar = Calendar.getInstance();
+        Converter converter = new Converter();
+
         for (int i = 0; i < familyDao.getAllFamilies().size(); i++) {
             Family family = familyDao.getAllFamilies().get(i);
 
             for (int j = 0; j < family.getChildren().size(); j++) {
                 Human child = family.getChildren().get(j);
-                if (2022 - child.getYear() > age)
+
+                long def = converter.converterToTimestamp(child.getBirthDate());
+                calendar.setTimeInMillis(def);
+                int year = calendar.get(Calendar.YEAR);
+
+                if (2022 - year > age)
                     family.getChildren().remove(child);
             }
             familyDao.saveFamily(family);

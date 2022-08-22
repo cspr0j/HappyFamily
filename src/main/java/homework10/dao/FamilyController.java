@@ -48,7 +48,7 @@ public class FamilyController {
         return familyService.adoptChild(family, child);
     }
 
-    public void deleteAllChildrenOlderThen(int age) {
+    public void deleteAllChildrenOlderThen(int age) throws ParseException {
         familyService.deleteAllChildrenOlderThen(age);
     }
 

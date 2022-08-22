@@ -6,8 +6,6 @@ import homework10.Species;
 import homework10.date.Converter;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 
 public class Human {
@@ -27,7 +25,6 @@ public class Human {
     private String name;
     private String surname;
     private Family family;
-    private int year;
     private long birthDate;
     private int iq;
     private Map<String,String> schedule;
@@ -99,14 +96,6 @@ public class Human {
         this.family = family;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public int getIq() {
         return iq;
     }
@@ -131,18 +120,25 @@ public class Human {
         this.flag = flag;
     }
 
-    public long getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        return converter.converterToString(birthDate);
     }
 
-    public void setBirthDate(long birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthDate(String birthDate) throws ParseException {
+        this.birthDate = converter.converterToTimestamp(birthDate);
     }
 
     //methods
-
     public String describeAge(){
-        return "";
+        Calendar calendar = Calendar.getInstance();
+        long def = this.birthDate;
+        calendar.setTimeInMillis(def);
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        return (2022 - year) + " year " + month + " month " + day + " day";
     }
 
     public void greetPet() {
@@ -226,7 +222,7 @@ public class Human {
     @Override
     public int hashCode() {
         int result = Objects.hash(name, surname,schedule,
-                family != null ? family.toString() : null, year, iq);
+                family != null ? family.toString() : null, birthDate, iq);
         result = 31 * result;
         return result;
     }

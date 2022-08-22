@@ -23,11 +23,11 @@ public class FamilyTest {
 
     @Test
     void toStringIsValid() throws ParseException {
-        Human father = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother = new Human("Christiane", "Kubrick", "10/05/1932",60);
 
         Family family = new Family(father, mother);
-        Human child = new Human("Vivian", "Kubrick", family, "12/02/1980");
+        Human child = new Human("Vivian", "Kubrick", family, "05/08/1960");
         child.setIq(70);
         child.setSchedule(schedule);
         family.addChild(child);
@@ -53,13 +53,13 @@ public class FamilyTest {
 
     @Test
     void deleteChild1() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
-        Human child2 = new Human("TestName", "TestSurname", family1, "12/02/1980");
+        Human child2 = new Human("TestName", "TestSurname", family1, "19/12/1980");
         child2.setIq(70);
 
         family1.addChild(child1);
@@ -73,14 +73,14 @@ public class FamilyTest {
     @Test
     void deleteChild2() throws ParseException {
 
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
-        Human child2 = new Human("TestName", "TestSurname", family1, "12/02/1980");
-        Human child3 = new Human("TestName2", "TestSurname2", family1, "12/02/1980");
+        Human child2 = new Human("TestName", "TestSurname", family1, "19/12/1980");
+        Human child3 = new Human("TestName2", "TestSurname2", family1, "25/05/1972");
 
         family1.addChild(child1);
         family1.addChild(child2);
@@ -92,13 +92,13 @@ public class FamilyTest {
 
     @Test
     void deleteChildByIndex() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
-        Human child2 = new Human("TestName", "TestSurname", family1, "12/02/1980");
+        Human child2 = new Human("TestName", "TestSurname", family1, "19/12/1980");
 
         family1.addChild(child1);
         family1.addChild(child2);
@@ -110,13 +110,13 @@ public class FamilyTest {
 
     @Test
     void deleteChildByIndex2() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
-        Human child2 = new Human("TestName", "TestSurname", family1, "12/02/1980");
+        Human child2 = new Human("TestName", "TestSurname", family1, "19/12/1980");
 
         family1.addChild(child1);
         family1.addChild(child2);
@@ -128,11 +128,11 @@ public class FamilyTest {
 
     @Test
     void addChild() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child.setIq(70);
 
         family1.addChild(child);
@@ -145,13 +145,13 @@ public class FamilyTest {
 
     @Test
     void countFamily() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
 
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
-        Human child2 = new Human("TestName", "TestSurname", family1, "12/02/1980");
+        Human child2 = new Human("TestName", "TestSurname", family1, "19/12/1980");
 
         family1.addChild(child1);
         family1.addChild(child2);
@@ -162,12 +162,12 @@ public class FamilyTest {
     @Test
     void iaEquals() throws ParseException {
         // Create first Family members
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
-
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
+
         // Create  child
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
         family1.addChild(child1);
 
@@ -175,26 +175,27 @@ public class FamilyTest {
         boolean firstContract = family1.equals(family1); //true
 
         // Create second Family members
-        Human father2 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother2 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932",60);
 
         Family family2 = new Family(father2, mother2);
         // Create  child
-        Human child2 = new Human("Vivian", "Kubrick", family2, "12/02/1980");
+        Human child2 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child2.setIq(70);
         family2.addChild(child2);
 
         // symmetric: X.equals(Y) must return the same result as Y.equals(X)
         // here our X - family1 ,   and    Y - family2
         boolean secondContract = family1.equals(family2) && family2.equals(family1); //true
+       // System.out.println(family1.equals(family2));
 
         // Create 3rd Family members
-        Human father3 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother3 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father3 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother3 = new Human("Christiane", "Kubrick", "10/05/1932",60);
 
         Family family3 = new Family(father3, mother3);
         // Create  child
-        Human child3 = new Human("Vivian", "Kubrick", family3, "12/02/1980");
+        Human child3 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child3.setIq(70);
         family3.addChild(child3);
 
@@ -217,6 +218,7 @@ public class FamilyTest {
 
         // final check with all contracts
         boolean result = firstContract && secondContract && thirdContract && fourthContract;
+
         assertTrue(result);
     }
 
@@ -224,12 +226,12 @@ public class FamilyTest {
     void hashCodeTests() throws ParseException {
 
         // Create first Family members
-        Human father1 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "12/02/1980",60);
-
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
         Family family1 = new Family(father1, mother1);
+
         // Create  child
-        Human child1 = new Human("Vivian", "Kubrick", family1, "12/02/1980");
+        Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child1.setIq(70);
         family1.addChild(child1);
 
@@ -244,11 +246,11 @@ public class FamilyTest {
                 family1.hashCode() == code2 &&
                 family1.hashCode() == code3;
 
-        Human father2 = new Human("Stanley", "Kubrick", "12/02/1980",80);
-        Human mother2 = new Human("Christiane", "Kubrick", "12/02/1980",60);
+        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928",80);
+        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932",60);
 
         Family family2 = new Family(father2, mother2);
-        Human child2 = new Human("Vivian", "Kubrick", family2, "12/02/1980");
+        Human child2 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
         child2.setIq(70);
         family2.addChild(child2);
 

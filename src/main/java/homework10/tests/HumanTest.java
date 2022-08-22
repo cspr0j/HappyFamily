@@ -11,7 +11,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HumanTest {
+public class HumanTest  {
     private static final Map<String,String> schedule = new HashMap<>();
 
     static {
@@ -22,13 +22,22 @@ public class HumanTest {
 
     @Test
     void toStringIsValid() throws ParseException {
-        Human male = new Human("Vito", "Corleone", "12/02/1980",90);
+        Human male = new Human("Vito", "Corleone", "29/04/1887",90);
         String str = "Human{" + "name='" + male.getName() + '\'' +
                 ", surname='" + male.getSurname() + '\'' +
-                ", year=" + male.getYear() +
+                ", birth date=" + male.getBirthDate() +
                 ", iq=" + male.getIq();
 
+
         assertEquals(str, male.toString());
+    }
+
+    @Test
+    void describeAge() throws ParseException {
+        Human male = new Human("Jalal", "Aliyev", "05/12/2000",120);
+        String str ="22 year 11 month 5 day";
+
+        assertEquals(str, male.describeAge());
     }
 
     @Test
