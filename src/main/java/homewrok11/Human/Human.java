@@ -1,9 +1,9 @@
-package homework10.Human;
+package homewrok11.Human;
 
-import homework10.Family;
-import homework10.Pets.Pet;
-import homework10.Species;
-import homework10.date.Converter;
+import homewrok11.Family;
+import homewrok11.Pets.Pet;
+import homewrok11.Species;
+import homewrok11.date.Converter;
 
 import java.text.ParseException;
 import java.util.*;
@@ -126,6 +126,13 @@ public class Human {
 
     public void setBirthDate(String birthDate) throws ParseException {
         this.birthDate = converter.converterToTimestamp(birthDate);
+    }
+
+    public int age() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(this.birthDate);
+
+        return calendar.get(Calendar.YEAR);
     }
 
     //methods
