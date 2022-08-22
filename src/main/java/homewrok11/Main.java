@@ -44,6 +44,22 @@ public class Main {
 
         System.out.println(child.describeAge());
 
+        controller.createNewFamily(father1, mother1);
+        controller.addPet(0, dog);
+
+        System.out.println(controller.getFamilyById(10));
+        System.out.println(controller.countFamiliesWithMemberNumber(2));
+
+        int size = 1;
+        System.out.printf("Families bigger than %d:\n", size);
+        controller.getFamiliesBiggerThan(size);
+        size = 3;
+        System.out.printf("Families less than %d:\n", size);
+        controller.getFamiliesLessThan(size);
+
+        System.out.println("List of families:");
+        System.out.println(controller.getAllFamilies());
+
         controller.displayAllFamilies();
     }
 }
