@@ -18,19 +18,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FamilyDAOTest {
 
-    private static final Map<String,String> schedule = new HashMap<>();
+    private static final Map<String, String> schedule = new HashMap<>();
 
     static {
-        schedule.put(DayOfWeek.SUNDAY.name(),"watch a film");
+        schedule.put(DayOfWeek.SUNDAY.name(), "watch a film");
         schedule.put(DayOfWeek.WEDNESDAY.name(), "meeting with friends");
         schedule.put(DayOfWeek.FRIDAY.name(), "Read a book");
     }
+
     private final FamilyService familyService = new FamilyService();
 
     @Test
     public void testGetAllFamilies() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         familyService.addFamily(family1);
@@ -41,13 +42,13 @@ public class FamilyDAOTest {
 
     @Test
     public void testGetFamiliesBiggerThan() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         familyService.addFamily(family1);
 
-        Man child1 = new Man("Finn", "Child_Test", "15/22/1995",100);
+        Man child1 = new Man("Finn", "Child_Test", "15/22/1995", 100);
         family1.addChild(child1);
 
         assertEquals(1, familyService.getFamiliesBiggerThan(2).size());
@@ -56,13 +57,13 @@ public class FamilyDAOTest {
 
     @Test
     public void testGetFamiliesLessThan() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         familyService.addFamily(family1);
 
-        Man child1 = new Man("Finn", "Child_Test", "15/22/1995",100);
+        Man child1 = new Man("Finn", "Child_Test", "15/22/1995", 100);
         family1.addChild(child1);
 
         assertEquals(0, familyService.getFamiliesLessThan(2).size());
@@ -71,13 +72,13 @@ public class FamilyDAOTest {
 
     @Test
     public void testCountFamiliesWithMemberNumber() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         familyService.addFamily(family1);
 
-        Man child1 = new Man("Finn", "Child_Test", "15/22/1995",100);
+        Man child1 = new Man("Finn", "Child_Test", "15/22/1995", 100);
         family1.addChild(child1);
 
         assertEquals(1, familyService.countFamiliesWithMemberNumber(3));
@@ -88,8 +89,8 @@ public class FamilyDAOTest {
     public void testCreateNewFamily() throws ParseException {
         assertEquals(0, familyService.getAllFamilies().size());
 
-        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         familyService.createNewFamily(man2, woman2);
 
@@ -100,8 +101,8 @@ public class FamilyDAOTest {
     public void testDeleteFamilyByIndex() throws ParseException {
         assertEquals(0, familyService.getAllFamilies().size());
 
-        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         familyService.createNewFamily(man2, woman2);
 
@@ -114,8 +115,8 @@ public class FamilyDAOTest {
 
     @Test
     public void testBornChild() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         assertEquals(0, familyService.getAllFamilies().size());
@@ -126,13 +127,13 @@ public class FamilyDAOTest {
 
     @Test
     public void testAdoptChild() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         assertEquals(0, familyService.getAllFamilies().size());
 
-        Man child1 = new Man("Finn", "Child_Test", "15/22/1995",100);
+        Man child1 = new Man("Finn", "Child_Test", "15/22/1995", 100);
         familyService.adoptChild(family1, child1);
 
         assertEquals(1, familyService.getFamilyById(0).getChildren().size());
@@ -140,13 +141,13 @@ public class FamilyDAOTest {
 
     @Test
     public void testDeleteAllChildrenOlderThen() throws ParseException {
-        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man1 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman1 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family1 = new Family(man1, woman1);
         assertEquals(0, familyService.getAllFamilies().size());
 
-        Man child1 = new Man("Finn", "Child_Test", "15/12/1995",100);
+        Man child1 = new Man("Finn", "Child_Test", "15/12/1995", 100);
         familyService.adoptChild(family1, child1);
 
         assertEquals(1, familyService.getFamilyById(0).getChildren().size());
@@ -162,8 +163,8 @@ public class FamilyDAOTest {
     public void testCount() throws ParseException {
         assertEquals(0, familyService.getAllFamilies().size());
 
-        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         familyService.createNewFamily(man2, woman2);
 
@@ -172,8 +173,8 @@ public class FamilyDAOTest {
 
     @Test
     public void testAddPetAndGetPet() throws ParseException {
-        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928",80);
-        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932",60);
+        Man man2 = new Man("Stanley", "Kubrick", "26/07/1928", 80);
+        Woman woman2 = new Woman("Christiane", "Kubrick", "10/05/1932", 60);
 
         familyService.createNewFamily(man2, woman2);
 

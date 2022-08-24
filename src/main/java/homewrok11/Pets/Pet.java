@@ -27,7 +27,7 @@ public abstract class Pet {
         // 'auto' assigning
         if (list.contains(name)) {
             species = Species.valueOf(name);
-        }else
+        } else
             species = Species.UNKNOWN;
         System.out.println("New Pet type  object is created");
     }

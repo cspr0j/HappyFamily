@@ -10,11 +10,11 @@ public  class Converter {
         try {
             return formatForDate.parse(date).getTime();
         } catch (ParseException e) {
-            throw new ParseException("Sorry, you can't convert this to Unix Millis Timestamp", 0);
+            throw new ParseException("Sorry, you can't convert this date to Unix Millis Timestamp", 0);
         }
     }
 
-    public String converterToString(long date){
+    public String converterToString(long date) {
         return formatForDate.format(date);
     }
 }

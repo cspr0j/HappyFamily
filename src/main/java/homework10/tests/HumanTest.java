@@ -11,18 +11,18 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HumanTest  {
-    private static final Map<String,String> schedule = new HashMap<>();
+public class HumanTest {
+    private static final Map<String, String> schedule = new HashMap<>();
 
     static {
-        schedule.put(DayOfWeek.SUNDAY.name(),"watch a film");
+        schedule.put(DayOfWeek.SUNDAY.name(), "watch a film");
         schedule.put(DayOfWeek.WEDNESDAY.name(), "meeting with friends");
         schedule.put(DayOfWeek.FRIDAY.name(), "Read a book");
     }
 
     @Test
     void toStringIsValid() throws ParseException {
-        Human male = new Human("Vito", "Corleone", "29/04/1887",90);
+        Human male = new Human("Vito", "Corleone", "29/04/1887", 90);
         String str = "Human{" + "name='" + male.getName() + '\'' +
                 ", surname='" + male.getSurname() + '\'' +
                 ", birth date=" + male.getBirthDate() +
@@ -34,8 +34,8 @@ public class HumanTest  {
 
     @Test
     void describeAge() throws ParseException {
-        Human male = new Human("Jalal", "Aliyev", "05/12/2000",120);
-        String str ="22 year 11 month 5 day";
+        Human male = new Human("Jalal", "Aliyev", "05/12/2000", 120);
+        String str = "22 year 11 month 5 day";
 
         assertEquals(str, male.describeAge());
     }
@@ -94,8 +94,8 @@ public class HumanTest  {
         int code2 = human1.hashCode();
         int code3 = human1.hashCode();
         boolean firstContract = human1.hashCode() == code1 &&
-                                    human1.hashCode() == code2 &&
-                                    human1.hashCode() == code3;
+                human1.hashCode() == code2 &&
+                human1.hashCode() == code3;
 
 
         Human human2 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);

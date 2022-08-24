@@ -13,18 +13,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FamilyTest {
 
-    private static final Map<String,String> schedule = new HashMap<>();
+    private static final Map<String, String> schedule = new HashMap<>();
 
     static {
-        schedule.put(DayOfWeek.SUNDAY.name(),"watch a film");
+        schedule.put(DayOfWeek.SUNDAY.name(), "watch a film");
         schedule.put(DayOfWeek.WEDNESDAY.name(), "meeting with friends");
         schedule.put(DayOfWeek.FRIDAY.name(), "Read a book");
     }
 
     @Test
     void toStringIsValid() throws ParseException {
-        Human father = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother = new Human("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family = new Family(father, mother);
         Human child = new Human("Vivian", "Kubrick", family, "05/08/1960");
@@ -53,8 +53,8 @@ public class FamilyTest {
 
     @Test
     void deleteChild1() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -73,8 +73,8 @@ public class FamilyTest {
     @Test
     void deleteChild2() throws ParseException {
 
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -87,13 +87,13 @@ public class FamilyTest {
 
         family1.deleteChild(child3); // pass an object that is not equivalent to any array element
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1,child2)));
+        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1, child2)));
     }
 
     @Test
     void deleteChildByIndex() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -110,8 +110,8 @@ public class FamilyTest {
 
     @Test
     void deleteChildByIndex2() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -123,13 +123,13 @@ public class FamilyTest {
 
         family1.deleteChild(3); // pass an index outside the index range
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1,child2)));
+        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1, child2)));
     }
 
     @Test
     void addChild() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -139,14 +139,14 @@ public class FamilyTest {
         int actualLength = family1.getChildren().size();
 
         assertTrue(actualLength == 1 &&
-                family1.getChildren().get(actualLength-1).equals(child));
+                family1.getChildren().get(actualLength - 1).equals(child));
     }
 
 
     @Test
     void countFamily() throws ParseException {
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         Human child1 = new Human("Vivian", "Kubrick", family1, "05/08/1960");
@@ -162,8 +162,8 @@ public class FamilyTest {
     @Test
     void iaEquals() throws ParseException {
         // Create first Family members
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         // Create  child
@@ -175,8 +175,8 @@ public class FamilyTest {
         boolean firstContract = family1.equals(family1); //true
 
         // Create second Family members
-        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family2 = new Family(father2, mother2);
         // Create  child
@@ -187,11 +187,11 @@ public class FamilyTest {
         // symmetric: X.equals(Y) must return the same result as Y.equals(X)
         // here our X - family1 ,   and    Y - family2
         boolean secondContract = family1.equals(family2) && family2.equals(family1); //true
-       // System.out.println(family1.equals(family2));
+        // System.out.println(family1.equals(family2));
 
         // Create 3rd Family members
-        Human father3 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother3 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father3 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother3 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family3 = new Family(father3, mother3);
         // Create  child
@@ -202,8 +202,8 @@ public class FamilyTest {
         // transitive: if X.equals(Y) and Y.equals(Z), then also X.equals(Z)
         // here our X - family1 ,   and    Y - family2  and    Z - family3
         boolean thirdContract = family1.equals(family2) &&
-                                family2.equals(family3) &&
-                                family1.equals(family3); //true
+                family2.equals(family3) &&
+                family1.equals(family3); //true
 
         // consistent:
         // for any given values of x and y,
@@ -226,8 +226,8 @@ public class FamilyTest {
     void hashCodeTests() throws ParseException {
 
         // Create first Family members
-        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father1 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother1 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
         Family family1 = new Family(father1, mother1);
 
         // Create  child
@@ -246,8 +246,8 @@ public class FamilyTest {
                 family1.hashCode() == code2 &&
                 family1.hashCode() == code3;
 
-        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928",80);
-        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932",60);
+        Human father2 = new Human("Stanley", "Kubrick", "26/07/1928", 80);
+        Human mother2 = new Human("Christiane", "Kubrick", "10/05/1932", 60);
 
         Family family2 = new Family(father2, mother2);
         Human child2 = new Human("Vivian", "Kubrick", family1, "05/08/1960");

@@ -12,7 +12,8 @@ import java.util.*;
 
 
 public class Family implements HumanCreator {
-    static final Map<Integer,List<String>> names;
+    static final Map<Integer, List<String>> names;
+
     // displays only 1 time
     static {
         names = new HashMap<>();
@@ -184,7 +185,7 @@ public class Family implements HumanCreator {
         Random random = new Random();
         // The sex of the child is defined casually with the 50%/50% probability. 0 or 1 - 50% chance
         int rndNum = random.nextInt(2);
-        
+
         Human child;
         if (rndNum == 0) {
             child = new Man();
@@ -194,19 +195,19 @@ public class Family implements HumanCreator {
         // Here it is best to use HashMap to store names,
         // because it allows you to choose by key
         // (rndNum - by which the sex of the child is determined)
-        names.put(0, Arrays.asList("Stanley","James","Bradley","Michael")); // for male
-        names.put(1,Arrays.asList("Samantha","Vivian","Jess")); // for female
+        names.put(0, Arrays.asList("Stanley", "James", "Bradley", "Michael")); // for male
+        names.put(1, Arrays.asList("Samantha", "Vivian", "Jess")); // for female
 
         int size = names.get(rndNum).size();
         child.setName(names.get(rndNum)
-                            .get(random.nextInt(size)));
+                .get(random.nextInt(size)));
 
         child.setSurname(father.getSurname());
         int iq = (father.getIq() + mother.getIq()) / 2;
         child.setIq(iq);
 
         Converter converter = new Converter();
-        double num =  ((Math.random() * 0.45) + 0.52);
+        double num = ((Math.random() * 0.45) + 0.52);
 
         String year = converter
                 .converterToString((long) (Calendar.getInstance()

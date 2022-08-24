@@ -69,13 +69,14 @@ public class FamilyService {
 
     public Family bornChild(Family family, String maleName, String femaleName) throws ParseException {
         Random random = new Random();
+        Converter converter = new Converter();
+
         // The sex of the child is defined casually with the 50%/50% probability. 0 or 1 - 50% chance
         int rndNum = random.nextInt(2);
         int iq = (family.getFather().getIq() + family.getMother().getIq()) / 2;
-        // randomly generated year
-        Converter converter = new Converter();
-        double num =  ((Math.random() * 0.45) + 0.52);
 
+        // randomly generated year
+        double num = ((Math.random() * 0.45) + 0.52);
         String year = converter
                 .converterToString((long) (Calendar.getInstance()
                         .getTimeInMillis() * num));
@@ -89,6 +90,7 @@ public class FamilyService {
             child = new Woman(femaleName, surname, year, iq);
         }
         family.addChild(child);
+
         return familyDao.saveFamily(family);
     }
 

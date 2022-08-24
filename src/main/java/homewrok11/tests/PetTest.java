@@ -18,7 +18,7 @@ public class PetTest {
     @Test
     void toStringIsValid() {
         Pet dog = new Dog("Rock", 5, 50, habits);
-        String expected =  dog.getSpecies() + "{" +
+        String expected = dog.getSpecies() + "{" +
                 "nickname='" + dog.getNickname() + '\'' +
                 ", age=" + dog.getAge() +
                 ", trickLevel=" + dog.getTrickLevel() +
@@ -82,8 +82,8 @@ public class PetTest {
         int code2 = pet1.hashCode();
         int code3 = pet1.hashCode();
         boolean firstContract = pet1.hashCode() == code1 &&
-                                    pet1.hashCode() == code2 &&
-                                    pet1.hashCode() == code3;
+                pet1.hashCode() == code2 &&
+                pet1.hashCode() == code3;
 
 
         Pet pet2 = new Robo_Cat("Rock", 5, 50, habits);

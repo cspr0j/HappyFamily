@@ -27,7 +27,7 @@ public class Human {
     private Family family;
     private long birthDate;
     private int iq;
-    private Map<String,String> schedule;
+    private Map<String, String> schedule;
 
     private boolean flag;
 
@@ -41,7 +41,7 @@ public class Human {
     }
 
     public Human(String name, String surname, String birthDate,
-                 int iq, Map<String,String> schedule) throws ParseException {
+                 int iq, Map<String, String> schedule) throws ParseException {
         this.name = name;
         this.surname = surname;
         this.birthDate = converter.converterToTimestamp(birthDate);
@@ -57,7 +57,7 @@ public class Human {
     }
 
     public Human(String name, String surname, Family family, String birthDate,
-                 int iq, Map<String,String> schedule) throws ParseException {
+                 int iq, Map<String, String> schedule) throws ParseException {
         this.name = name;
         this.surname = surname;
         this.family = family;
@@ -108,7 +108,7 @@ public class Human {
         return schedule;
     }
 
-    public void setSchedule(Map<String,String> schedule) {
+    public void setSchedule(Map<String, String> schedule) {
         this.schedule = schedule;
     }
 
@@ -129,7 +129,7 @@ public class Human {
     }
 
     //methods
-    public String describeAge(){
+    public String describeAge() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(this.birthDate);
 
@@ -188,13 +188,13 @@ public class Human {
             str.append(", mother=").append(family.getMother().name)
                     .append(", father=").append(family.getFather().name);
             if (family.getPet().size() != 0) {
-             str.append(", pet=").append(family.getPet());
-        }
+                str.append(", pet=").append(family.getPet());
+            }
         }
         if (schedule != null) {
-            str.append(", schedule=").append(schedule)
-                    .append('}');
+            str.append(", schedule=").append(schedule);
         }
+        str.append('}');
         return str.toString();
     }
 
@@ -214,13 +214,13 @@ public class Human {
                                 family.getFather().name.equals(human.family.getFather().name) &&
                                 family.getFather().surname.equals(human.family.getFather().surname) &&
                                 Objects.equals(Arrays.toString(family.getChildren().toArray()),
-                                                Arrays.toString(human.getFamily().getChildren().toArray()))
+                                        Arrays.toString(human.getFamily().getChildren().toArray()))
                 );
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname,schedule,
+        int result = Objects.hash(name, surname, schedule,
                 family != null ? family.toString() : null, birthDate, iq);
         result = 31 * result;
         return result;

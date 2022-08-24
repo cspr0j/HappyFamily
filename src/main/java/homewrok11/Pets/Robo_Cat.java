@@ -26,4 +26,5 @@ public class Robo_Cat extends Pet implements NastyThings {
     public void foul() {
         System.out.printf("I am - %s. I need to cover it up\n", getSpecies());
     }
+
 }
