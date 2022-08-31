@@ -137,7 +137,7 @@ public class Human {
 
         int year = calendar.get(Calendar.YEAR) - 1970;
         int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH) - 1;
 
         return year + " year " + month + " month " + day + " day";
     }
