@@ -131,13 +131,15 @@ public class Human {
     //methods
     public String describeAge() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(this.birthDate);
+        long result = calendar.getTimeInMillis() - this.birthDate;
+        
+        calendar.setTimeInMillis(result);
 
-        int year = calendar.get(Calendar.YEAR);
+        int year = calendar.get(Calendar.YEAR) - 1970;
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        return (2022 - year) + " year " + month + " month " + day + " day";
+        return year + " year " + month + " month " + day + " day";
     }
 
     public void greetPet() {
