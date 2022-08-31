@@ -37,7 +37,17 @@ public class HumanTest {
     @Test
     void describeAge() throws ParseException {
         Human male = new Human("Jalal", "Aliyev", "05/12/2000", 120);
-        String str = "22 year 11 month 5 day";
+        Calendar calendar = Calendar.getInstance();
+        Converter converter = new Converter();
+
+        long result = converter.converterToTimestamp(male.getBirthDate());
+        long diff = calendar.getTimeInMillis() - result;
+        calendar.setTimeInMillis(diff);
+
+        int year = calendar.get(Calendar.YEAR) - 1970;
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH) - 1;
+        String str =  year + " year " + month + " month " + day + " day";
 
         assertEquals(str, male.describeAge());
     }
