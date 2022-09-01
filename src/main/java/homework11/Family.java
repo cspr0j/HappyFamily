@@ -1,11 +1,11 @@
-package homewrok11;
+package homework11;
 
-import homewrok11.Human.Human;
-import homewrok11.Human.HumanCreator;
-import homewrok11.Human.Man;
-import homewrok11.Human.Woman;
-import homewrok11.Pets.Pet;
-import homewrok11.date.Converter;
+import homework11.Human.Human;
+import homework11.Human.HumanCreator;
+import homework11.Human.Man;
+import homework11.Human.Woman;
+import homework11.Pets.Pet;
+import homework11.date.Converter;
 
 import java.text.ParseException;
 import java.util.*;

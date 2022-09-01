@@ -1,11 +1,11 @@
-package homewrok11.tests;
+package homework11.tests;
 
-import homewrok11.DayOfWeek;
-import homewrok11.Family;
-import homewrok11.Human.Man;
-import homewrok11.Human.Woman;
-import homewrok11.Pets.Dog;
-import homewrok11.dao.FamilyService;
+import homework11.DayOfWeek;
+import homework11.Family;
+import homework11.Human.Man;
+import homework11.Human.Woman;
+import homework11.Pets.Dog;
+import homework11.dao.FamilyService;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;

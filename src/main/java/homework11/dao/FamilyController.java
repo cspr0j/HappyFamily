@@ -1,8 +1,8 @@
-package homewrok11.dao;
+package homework11.dao;
 
-import homewrok11.Family;
-import homewrok11.Human.Human;
-import homewrok11.Pets.Pet;
+import homework11.Family;
+import homework11.Human.Human;
+import homework11.Pets.Pet;
 
 import java.text.ParseException;
 import java.util.List;

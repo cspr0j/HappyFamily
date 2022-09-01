@@ -1,7 +1,7 @@
-package homewrok11.Human;
+package homework11.Human;
 
-import homewrok11.Family;
-import homewrok11.Pets.Pet;
+import homework11.Family;
+import homework11.Pets.Pet;
 
 import java.text.ParseException;
 import java.util.Map;

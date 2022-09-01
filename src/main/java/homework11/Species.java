@@ -1,4 +1,4 @@
-package homewrok11;
+package homework11;
 
 public enum Species {
     DOG(false, 4, true),

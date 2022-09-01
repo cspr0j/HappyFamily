@@ -1,8 +1,8 @@
-package homewrok11.tests;
+package homework11.tests;
 
-import homewrok11.Pets.Dog;
-import homewrok11.Pets.Pet;
-import homewrok11.Pets.Robo_Cat;
+import homework11.Pets.Dog;
+import homework11.Pets.Pet;
+import homework11.Pets.Robo_Cat;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

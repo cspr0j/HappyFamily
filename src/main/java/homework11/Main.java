@@ -1,10 +1,10 @@
-package homewrok11;
+package homework11;
 
-import homewrok11.Human.Man;
-import homewrok11.Human.Woman;
-import homewrok11.Pets.Dog;
-import homewrok11.Pets.Domestic_Cat;
-import homewrok11.dao.FamilyController;
+import homework11.Human.Man;
+import homework11.Human.Woman;
+import homework11.Pets.Dog;
+import homework11.Pets.Domestic_Cat;
+import homework11.dao.FamilyController;
 
 import java.util.Arrays;
 import java.util.HashMap;

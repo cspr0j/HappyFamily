@@ -1,6 +1,6 @@
-package homewrok11.dao;
+package homework11.dao;
 
-import homewrok11.Family;
+import homework11.Family;
 
 import java.util.List;
 

@@ -1,18 +1,18 @@
-package homewrok11.Pets;
+package homework11.Pets;
 
 import java.util.Set;
 
-public class Domestic_Cat extends Pet implements NastyThings {
+public class Robo_Cat extends Pet implements NastyThings {
 
-    public Domestic_Cat(String nickname) {
+    public Robo_Cat(String nickname) {
         super(nickname);
     }
 
-    public Domestic_Cat(String nickname, int age, int trickLevel, Set<String> habits) {
+    public Robo_Cat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
-    public Domestic_Cat() {
+    public Robo_Cat() {
     }
 
     @Override
@@ -26,4 +26,5 @@ public class Domestic_Cat extends Pet implements NastyThings {
     public void foul() {
         System.out.printf("I am - %s. I need to cover it up\n", getSpecies());
     }
+
 }

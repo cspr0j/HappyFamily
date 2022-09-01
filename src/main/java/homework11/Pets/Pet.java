@@ -1,6 +1,6 @@
-package homewrok11.Pets;
+package homework11.Pets;
 
-import homewrok11.Species;
+import homework11.Species;
 
 import java.util.ArrayList;
 import java.util.List;

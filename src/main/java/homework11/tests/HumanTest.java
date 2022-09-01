@@ -1,10 +1,12 @@
-package homewrok11.tests;
+package homework11.tests;
 
-import homewrok11.DayOfWeek;
-import homewrok11.Human.Human;
+import homework10.date.Converter;
+import homework11.DayOfWeek;
+import homework11.Human.Human;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,8 +38,18 @@ public class HumanTest {
 
     @Test
     void describeAge() throws ParseException {
-        Human male = new Human("Jalal", "Aliyev", "05/12/2000", 120);
-        String str = "22 year 11 month 5 day";
+        homework10.Human.Human male = new homework10.Human.Human("Jalal", "Aliyev", "05/12/2000", 120);
+        Calendar calendar = Calendar.getInstance();
+        Converter converter = new Converter();
+
+        long result = converter.converterToTimestamp(male.getBirthDate());
+        long diff = calendar.getTimeInMillis() - result;
+        calendar.setTimeInMillis(diff);
+
+        int year = calendar.get(Calendar.YEAR) - 1970;
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH) - 1;
+        String str =  year + " year " + month + " month " + day + " day";
 
         assertEquals(str, male.describeAge());
     }

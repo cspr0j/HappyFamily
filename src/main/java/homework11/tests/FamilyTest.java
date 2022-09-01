@@ -1,8 +1,8 @@
-package homewrok11.tests;
+package homework11.tests;
 
-import homewrok11.DayOfWeek;
-import homewrok11.Family;
-import homewrok11.Human.Human;
+import homework11.DayOfWeek;
+import homework11.Family;
+import homework11.Human.Human;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -67,7 +67,7 @@ public class FamilyTest {
 
         family1.deleteChild(child2);
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Collections.singletonList(child1)));
+        assertEquals(family1.getChildren(), new ArrayList<>(Collections.singletonList(child1)));
     }
 
     @Test
@@ -87,7 +87,7 @@ public class FamilyTest {
 
         family1.deleteChild(child3); // pass an object that is not equivalent to any array element
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1, child2)));
+        assertEquals(family1.getChildren(), new ArrayList<>(Arrays.asList(child1, child2)));
     }
 
     @Test
@@ -105,7 +105,7 @@ public class FamilyTest {
 
         family1.deleteChild(0);
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Collections.singletonList(child2)));
+        assertEquals(family1.getChildren(), new ArrayList<>(Collections.singletonList(child2)));
     }
 
     @Test
@@ -123,7 +123,7 @@ public class FamilyTest {
 
         family1.deleteChild(3); // pass an index outside the index range
 
-        assertEquals(family1.getChildren(), new ArrayList<Human>(Arrays.asList(child1, child2)));
+        assertEquals(family1.getChildren(), new ArrayList<>(Arrays.asList(child1, child2)));
     }
 
     @Test
