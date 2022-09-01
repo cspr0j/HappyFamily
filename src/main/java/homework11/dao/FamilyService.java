@@ -9,6 +9,7 @@ import homework11.date.Converter;
 
 import java.text.ParseException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FamilyService {
 
@@ -39,14 +40,11 @@ public class FamilyService {
     }
 
     public List<Family> getFamiliesLessThan(int size) {
-        List<Family> list = new ArrayList<>();
-        familyDao
-                .getAllFamilies()
-                .forEach(family ->
-                {
-                    if (family.countFamily() < size)
-                        list.add(family);
-                });
+        List<Family> list = familyDao
+                .getAllFamilies().stream()
+                .filter(family -> family.countFamily() < size)
+                .collect(Collectors.toList());
+
         System.out.println(list);
         return list;
     }

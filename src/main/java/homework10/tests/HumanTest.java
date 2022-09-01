@@ -2,9 +2,11 @@ package homework10.tests;
 
 import homework10.DayOfWeek;
 import homework10.Human.Human;
+import homework10.date.Converter;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +28,8 @@ public class HumanTest {
         String str = "Human{" + "name='" + male.getName() + '\'' +
                 ", surname='" + male.getSurname() + '\'' +
                 ", birth date=" + male.getBirthDate() +
-                ", iq=" + male.getIq();
+                ", iq=" + male.getIq() +
+                "}";
 
 
         assertEquals(str, male.toString());
