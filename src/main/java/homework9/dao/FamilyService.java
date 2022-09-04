@@ -101,8 +101,12 @@ public class FamilyService {
 
             for (int j = 0; j < family.getChildren().size(); j++) {
                 Human child = family.getChildren().get(j);
-                if (2022 - child.getYear() > age)
+                if (2022 - child.getYear() > age) {
                     family.getChildren().remove(child);
+                    // since we've removed child from list,
+                    // we need to reduce iterator, so that we can check all children
+                    j--;
+                }
             }
             familyDao.saveFamily(family);
         }

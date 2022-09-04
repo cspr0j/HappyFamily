@@ -147,9 +147,11 @@ public class FamilyDAOTest {
         assertEquals(0, familyService.getAllFamilies().size());
 
         Human child = new Human("Frank", "Smith", family, 1990);
+        Human child2 = new Human("MyChild", "Smith", family, 1900);
         familyService.adoptChild(family, child);
+        family.addChild(child2);
 
-        assertEquals(1, familyService.getFamilyById(0).getChildren().size());
+        assertEquals(2, familyService.getFamilyById(0).getChildren().size());
 
         familyService.deleteAllChildrenOlderThen(40);
         assertEquals(1, familyService.getFamilyById(0).getChildren().size());
