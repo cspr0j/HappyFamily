@@ -4,7 +4,6 @@ import homework12.Human.Man;
 import homework12.Human.Woman;
 import homework12.Pets.Dog;
 import homework12.Pets.Domestic_Cat;
-import homework12.Pets.Pet;
 import homework12.dao.FamilyController;
 
 import java.util.*;
@@ -26,10 +25,7 @@ public class Main {
         Woman woman = new Woman("Chrissy", "Smith", "28/12/1998", 80, schedule);
         Family family = new Family(man, woman);
         family.bornChild();
-        Set<Pet> pets = new HashSet<>();
-        pets.add(dog);
-        pets.add(cat);
-        family.setPet(pets);
+        family.setPet(new HashSet<>(Arrays.asList(dog, cat)));
 
         FamilyController controller = new FamilyController();
 
