@@ -148,7 +148,7 @@ public class FamilyDAOTest {
         assertEquals(0, familyService.getAllFamilies().size());
 
         Man child1 = new Man("Finn", "Child_Test", "15/12/1995", 100);
-        Man child2 = new Man("Finn", "Child_Test", "15/12/1900", 100);
+        Man child2 = new Man("MyChild", "Child_Test", "15/12/1900", 100);
         familyService.adoptChild(family1, child1);
         family1.addChild(child2);
 
