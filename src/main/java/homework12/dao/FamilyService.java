@@ -22,30 +22,39 @@ public class FamilyService {
     public void displayAllFamilies() {
         familyDao
                 .getAllFamilies()
-                .forEach(family -> System.out.printf("Index: %d, %s \n", getAllFamilies().indexOf(family), family)
+                .forEach(family ->
+                        System.out.printf("Index: %d, %s \n",
+                                getAllFamilies().indexOf(family), family.prettyFormat())
                 );
     }
 
     public List<Family> getFamiliesBiggerThan(int size) {
         List<Family> list = new ArrayList<>();
+
         familyDao
                 .getAllFamilies()
                 .forEach(family ->
                 {
-                    if (family.countFamily() > size)
+                    if (family.countFamily() > size) {
                         list.add(family);
+                        System.out.println(family.prettyFormat());
+                    }
                 });
-        System.out.println(list);
         return list;
     }
 
     public List<Family> getFamiliesLessThan(int size) {
-        List<Family> list = familyDao
-                .getAllFamilies().stream()
-                .filter(family -> family.countFamily() < size)
-                .collect(Collectors.toList());
+        List<Family> list = new ArrayList<>();
 
-        System.out.println(list);
+        familyDao
+                .getAllFamilies()
+                .forEach(family ->
+                {
+                    if (family.countFamily() < size) {
+                        list.add(family);
+                        System.out.println(family.prettyFormat());
+                    }
+                });;
         return list;
     }
 
@@ -74,7 +83,7 @@ public class FamilyService {
         int iq = (family.getFather().getIq() + family.getMother().getIq()) / 2;
 
         // randomly generated year
-        double num = ((Math.random() * 0.45) + 0.52);
+        double num = ((Math.random() * 0.11) + 0.89);
         String year = converter
                 .converterToString((long) (Calendar.getInstance()
                         .getTimeInMillis() * num));

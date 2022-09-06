@@ -155,6 +155,7 @@ public class Family implements HumanCreator {
             st.append("No children");
         }
         st.append("\n\t pets: [");
+
         int[] size = {0};
         pet.forEach(myPet -> {
             st.append(myPet.prettyFormat());
@@ -163,15 +164,9 @@ public class Family implements HumanCreator {
             }
             size[0]++;
         });
-//        for (Iterator<Pet> iterator = getPet().iterator(); iterator.hasNext(); ) {
-//            Pet pets = iterator.next();
-//            st.append(pets.prettyFormat());
-//            if (iterator.hasNext()){
-//                st.append(", ");
-//            }
-//
-//        }
+
         st.append("]");
+
         return st.toString();
     }
 
@@ -244,7 +239,7 @@ public class Family implements HumanCreator {
         child.setIq(iq);
 
         Converter converter = new Converter();
-        double num = ((Math.random() * 0.45) + 0.52);
+        double num = ((Math.random() * 0.11) + 0.79);
 
         String year = converter
                 .converterToString((long) (Calendar.getInstance()

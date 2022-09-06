@@ -3,6 +3,7 @@ package homework12.dao;
 import homework12.Family;
 import homework12.Human.Human;
 import homework12.Pets.Pet;
+import homework12.exception.FamilyOverflowException;
 
 import java.text.ParseException;
 import java.util.List;
@@ -41,10 +42,20 @@ public class FamilyController {
     }
 
     public Family bornChild(Family family, String manName, String womanName) throws ParseException {
+        int limit = 8;
+        // throws an exception if family size reaches the limit
+        if (family.countFamily() >= limit) {
+            throw new FamilyOverflowException("Reaches to the limit");
+        }
         return familyService.bornChild(family, manName, womanName);
     }
 
     public Family adoptChild(Family family, Human child) {
+        int limit = 8;
+        // throws an exception if family size reaches the limit
+        if (family.countFamily() >= limit) {
+            throw new FamilyOverflowException("Reaches to the limit");
+        }
         return familyService.adoptChild(family, child);
     }
 
