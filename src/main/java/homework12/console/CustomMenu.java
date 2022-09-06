@@ -26,7 +26,7 @@ public class CustomMenu {
         builder.append(" 1. Give birth to baby\n");
         builder.append(" 2. Adopt child\n");
         builder.append(" 3. Return to the main menu \n");
-        builder.append("Please enter the number of command: ");
+        builder.append("Please enter the serial number of command: ");
 
         System.out.println(builder);
     }
