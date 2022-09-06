@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.util.*;
 
 public class Main {
+    private static final FamilyController controller = new FamilyController();
+
     public static void main(String[] args) throws Throwable {
         myConsoleApp();
     }
@@ -21,17 +23,16 @@ public class Main {
      */
     public static void myConsoleApp() throws ParseException {
         CustomMenu displayMenu = new CustomMenu();
-        FamilyController controller = new FamilyController();
-        boolean notExit = true;
+        boolean notExitCommand = true;
 
 
-        while (notExit) {
+        while (notExitCommand) {
             displayMenu.mainPage();
             int selection = correctIntegerInput();
 
             switch (selection) {
                 case 1:
-                    fillWithData(controller);
+                    fillWithData();
                     break;
 
                 case 2:
@@ -39,15 +40,15 @@ public class Main {
                     break;
 
                 case 3:
-                    getFamiliesGreaterThan(controller);
+                    getFamiliesGreaterThan();
                     break;
 
                 case 4:
-                    getFamiliesLessThan(controller);
+                    getFamiliesLessThan();
                     break;
 
                 case 5:
-                    countFamiliesWithMembersNumber(controller);
+                    countFamiliesWithMembersNumber();
                     break;
 
                 case 6:
@@ -55,20 +56,20 @@ public class Main {
                     break;
 
                 case 7:
-                    deleteFamilyByIndex(controller);
+                    deleteFamilyByIndex();
                     break;
 
 
                 case 8:
-                    updateFamily(controller);
+                    updateFamily();
                     break;
 
                 case 9:
-                    removeChildrenOlderThan(controller);
+                    removeChildrenOlderThan();
                     break;
 
                 case 10:
-                    notExit = false;
+                    notExitCommand = false;
                     System.out.println("Exiting app...");
                     break;
 
@@ -80,7 +81,7 @@ public class Main {
         }
     }
 
-    private static void fillWithData(FamilyController controller) throws ParseException {
+    private static void fillWithData() throws ParseException {
         Map<String, String> schedule = new HashMap<>();
         schedule.put(DayOfWeek.SUNDAY.name(), "watch a film");
         schedule.put(DayOfWeek.WEDNESDAY.name(), "meeting with friends");
@@ -98,11 +99,12 @@ public class Main {
         family.bornChild();
         family.setPet(new HashSet<>(Arrays.asList(dog, cat)));
         controller.addFamily(family);
+
+        System.out.println("Success!");
     }
 
-    private static void getFamiliesGreaterThan(FamilyController controller) {
-
-        System.out.println("Enter the number for filtering");
+    private static void getFamiliesGreaterThan() {
+        System.out.println("Enter the number for searching");
         int size = correctIntegerInput();
 
         System.out.printf("Families bigger than %d:\n", size);
@@ -110,9 +112,9 @@ public class Main {
     }
 
 
-    private static void getFamiliesLessThan(FamilyController controller) {
+    private static void getFamiliesLessThan() {
 
-        System.out.println("Enter the number for filtering");
+        System.out.println("Enter the number for searching");
         int size = correctIntegerInput();
 
         System.out.printf("Families less than %d:\n", size);
@@ -120,10 +122,11 @@ public class Main {
     }
 
 
-    private static void countFamiliesWithMembersNumber(FamilyController controller) {
-        System.out.println("Enter number for filtering");
+    private static void countFamiliesWithMembersNumber() {
+        System.out.println("Enter the number for searching");
         int count = correctIntegerInput();
 
+        System.out.printf("Families with %d members:\n", count);
         System.out.println(controller.countFamiliesWithMemberNumber(count));
     }
 
@@ -131,8 +134,8 @@ public class Main {
      * Creating family
      */
     private static void createNewFamily() {
-        FamilyController controller = new FamilyController();
         Scanner scanner = new Scanner(System.in);
+
         try {
             System.out.println("Enter mother's name:");
             String motherName = scanner.next();
@@ -179,15 +182,14 @@ public class Main {
             Man father = new Man(fatherName, fatherSurname, birthDate, fatherIq);
             controller.createNewFamily(father, mother);
 
-        } catch (/*InputMismatchException | */ParseException ex){
+        } catch (NullPointerException | ParseException ex){
             System.out.println("Please enter valid data");
         }
 
     }
 
-    private static void deleteFamilyByIndex(FamilyController controller) {
-        System.out.println("Enter number for filtering");
-
+    private static void deleteFamilyByIndex() {
+        System.out.println("Enter the number for searching");
         int index = correctIntegerInput();
         controller.deleteFamilyByIndex(index);
     }
@@ -195,27 +197,26 @@ public class Main {
     /**
      * Update menu
      */
-    private static void updateFamily(FamilyController controller) {
+    private static void updateFamily() {
         CustomMenu displayMenu = new CustomMenu();
-        Scanner scanner = new Scanner(System.in);
-        boolean notExit = true;
+        boolean notExitCommand = true;
 
-        while (notExit) {
+        while (notExitCommand) {
             displayMenu.updateFamily();
             int selection = correctIntegerInput();
 
             switch (selection) {
 
                 case 1:
-                    giveBirthToChild(controller, scanner);
+                    giveBirthToChild();
                     break;
 
                 case 2:
-                    adoptChild(controller, scanner);
+                    adoptChild();
                     break;
 
                 case 3:
-                    notExit = false;
+                    notExitCommand = false;
                     break;
 
                 default:
@@ -226,7 +227,9 @@ public class Main {
     }
 
 
-    private static void giveBirthToChild(FamilyController controller, Scanner scanner) {
+    private static void giveBirthToChild() {
+        Scanner scanner = new Scanner(System.in);
+
         try {
             System.out.println("Enter ID of family:");
             int familyId = correctIntegerInput();
@@ -240,17 +243,19 @@ public class Main {
             String girl = scanner.next();
 
             controller.bornChild(family, boy, girl);
-            System.out.println("Data saved");
+            System.out.println("Successfully saved");
         }
         catch (NullPointerException | ParseException ex){
-            System.out.println("Please enter valid data");
+            System.out.println("Invalid data. Please try again");
         }
     }
 
     /**
      * Adopts child to family
      */
-    private static void adoptChild(FamilyController controller, Scanner scanner) {
+    private static void adoptChild() {
+        Scanner scanner = new Scanner(System.in);
+
         try {
             System.out.println("Enter ID of family:");
             int familyId = correctIntegerInput();
@@ -263,25 +268,33 @@ public class Main {
             System.out.println("Enter surname: ");
             String surname = scanner.next();
 
-            System.out.println("Enter birth date");
-            String birthDate = scanner.next();
+            System.out.println("Enter birth year: ");
+            int birthYear = correctIntegerInput();
+
+            System.out.println("Enter birth month: ");
+            int birthMonth = correctIntegerInput();
+
+            System.out.println("Enter birth day: ");
+            int birthDay = correctIntegerInput();
+
+            String birthDate = String.format("%d/%d/%d", birthDay, birthMonth, birthYear);
 
             System.out.println("Enter level of intelligence");
             int iq = correctIntegerInput();
 
             controller.adoptChild(family, new Human(name, surname, birthDate, iq));
-            System.out.println("Data saved");
+            System.out.println("Successfully saved");
         }
         catch (NullPointerException | ParseException ex){
-            System.out.println("Please enter valid data");
+            System.out.println("Invalid data. Please try again");
         }
     }
 
     /**
      * Deletes all children, who're older than 'num'
      */
-    private static void removeChildrenOlderThan(FamilyController controller) {
-        System.out.println("Enter number for filtering");
+    private static void removeChildrenOlderThan() {
+        System.out.print("Older than: ");
         int num= correctIntegerInput();
 
         controller.deleteAllChildrenOlderThen(num);
@@ -306,6 +319,9 @@ public class Main {
                     return input;
 
             } catch (Exception e) {
+                if(buffer.equalsIgnoreCase("exit")){
+                    return 10;
+                }
                 System.out.println("Wrong input. Please, try again");
             }
         }
