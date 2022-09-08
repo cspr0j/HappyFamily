@@ -6,7 +6,6 @@ import homework9.Human.Human;
 import homework9.Human.Man;
 import homework9.Human.Woman;
 import homework9.Pets.Dog;
-
 import homework9.dao.FamilyService;
 import org.junit.jupiter.api.Test;
 

@@ -6,7 +6,10 @@ import homework9.Human.Man;
 import homework9.Human.Woman;
 import homework9.Pets.Pet;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class FamilyService {
 

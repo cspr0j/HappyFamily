@@ -1,29 +1,31 @@
-package homework7.tests;
+package homework13.tests;
 
-import homework7.Pets.Dog;
-import homework7.Pets.Pet;
-import homework7.Pets.Robo_Cat;
+import homework13.Pets.Dog;
+import homework13.Pets.Pet;
+import homework13.Pets.Robo_Cat;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PetTest {
-    private final String[] habits = {"sleep", "eat", "drink"};
+    private final Set<String> habits = new HashSet<>(Arrays.asList("sleep", "eat", "drink"));
 
     @Test
     void toStringIsValid() {
         Pet dog = new Dog("Rock", 5, 50, habits);
-        String expected =  dog.getSpecies() + "{" +
+        String expected = dog.getSpecies() + "{" +
                 "nickname='" + dog.getNickname() + '\'' +
                 ", age=" + dog.getAge() +
                 ", trickLevel=" + dog.getTrickLevel() +
                 ", can fly:" + dog.getSpecies().canFly +
                 ", number of legs:" + dog.getSpecies().numberOfLegs +
                 ", has fur:" + dog.getSpecies().hasFur +
-                ", habits=" + Arrays.toString(habits) +
+                ", habits=" + habits +
                 '}';
         assertEquals(expected, dog.toString());
     }
@@ -80,8 +82,8 @@ public class PetTest {
         int code2 = pet1.hashCode();
         int code3 = pet1.hashCode();
         boolean firstContract = pet1.hashCode() == code1 &&
-                                    pet1.hashCode() == code2 &&
-                                    pet1.hashCode() == code3;
+                pet1.hashCode() == code2 &&
+                pet1.hashCode() == code3;
 
 
         Pet pet2 = new Robo_Cat("Rock", 5, 50, habits);

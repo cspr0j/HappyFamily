@@ -2,7 +2,10 @@ package homework7.Pets;
 
 import homework7.Species;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 
 public abstract class Pet {

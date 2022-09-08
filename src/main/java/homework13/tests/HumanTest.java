@@ -1,43 +1,69 @@
-package homework6.tests;
+package homework13.tests;
 
-import homework6.DayOfWeek;
-import homework6.Human;
+import homework10.date.Converter;
+import homework13.DayOfWeek;
+import homework13.Human.Human;
 import org.junit.jupiter.api.Test;
+
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HumanTest {
-    private final String[][] schedule = {
-            {DayOfWeek.SUNDAY.name(),"watch a film"},
-            {DayOfWeek.WEDNESDAY.name(), "meeting with friends"},
-            {DayOfWeek.FRIDAY.name(), "Read a book"}
-    };
+    private static final Map<String, String> schedule = new HashMap<>();
+
+    static {
+        schedule.put(DayOfWeek.SUNDAY.name(), "watch a film");
+        schedule.put(DayOfWeek.WEDNESDAY.name(), "meeting with friends");
+        schedule.put(DayOfWeek.FRIDAY.name(), "Read a book");
+    }
 
     @Test
-    void toStringIsValid() {
-        Human male = new Human("Vito", "Corleone", 1887);
-        male.setIq(90);
+    void toStringIsValid() throws ParseException {
+        Human male = new Human("Vito", "Corleone", "29/04/1887", 90);
+
         String str = "Human{" + "name='" + male.getName() + '\'' +
                 ", surname='" + male.getSurname() + '\'' +
-                ", year=" + male.getYear() +
-                ", iq=" + male.getIq();
+                ", birth date=" + male.getBirthDate() +
+                ", iq=" + male.getIq() +
+                "}";
 
-        System.out.println(male);
-        System.out.println(str);
+
         assertEquals(str, male.toString());
     }
 
     @Test
-    void iaEquals() {
+    void describeAge() throws ParseException {
+        homework10.Human.Human male = new homework10.Human.Human("Jalal", "Aliyev", "05/12/2000", 120);
+        Calendar calendar = Calendar.getInstance();
+        Converter converter = new Converter();
 
-        Human human1 = new Human("Jalal", "Aliyev", 2000, 100, schedule);
+        long result = converter.converterToTimestamp(male.getBirthDate());
+        long diff = calendar.getTimeInMillis() - result;
+        calendar.setTimeInMillis(diff);
+
+        int year = calendar.get(Calendar.YEAR) - 1970;
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH) - 1;
+        String str =  year + " year " + month + " month " + day + " day";
+
+        assertEquals(str, male.describeAge());
+    }
+
+    @Test
+    void iaEquals() throws ParseException {
+
+        Human human1 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);
 
         // reflexive: an object must equal itself
         boolean firstContract = human1.equals(human1); //true
 
         //create another second Human for comparing
-        Human human2 = new Human("Jalal", "Aliyev", 2000, 100, schedule);
+        Human human2 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);
 
         // symmetric: X.equals(Y) must return the same result as Y.equals(X)
         // here our X - human1 ,   and    Y - human2
@@ -45,7 +71,7 @@ public class HumanTest {
 
 
         //create another 3rd Human for comparing
-        Human human3 = new Human("Jalal", "Aliyev", 2000, 100, schedule);
+        Human human3 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);
 
         // transitive: if X.equals(Y) and Y.equals(Z), then also X.equals(Z)
         // here our X - human1 ,   and    Y - human2  and    Z - human3
@@ -70,9 +96,9 @@ public class HumanTest {
     }
 
     @Test
-    void hashCodeTests() {
+    void hashCodeTests() throws ParseException {
 
-        Human human1 = new Human("Jalal", "Aliyev", 2000, 100, schedule);
+        Human human1 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);
 
         // internal consistency:
         // calling the hashCode method one or more times over the same object
@@ -82,11 +108,11 @@ public class HumanTest {
         int code2 = human1.hashCode();
         int code3 = human1.hashCode();
         boolean firstContract = human1.hashCode() == code1 &&
-                                    human1.hashCode() == code2 &&
-                                    human1.hashCode() == code3;
+                human1.hashCode() == code2 &&
+                human1.hashCode() == code3;
 
 
-        Human human2 = new Human("Jalal", "Aliyev", 2000, 100, schedule);
+        Human human2 = new Human("Jalal", "Aliyev", "05/12/2000", 100, schedule);
 
         // calling the hashCode method on two objects
         // should always return the same number

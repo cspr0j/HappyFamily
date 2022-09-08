@@ -1,7 +1,5 @@
 package homework6.tests;
 
-import homework6.DayOfWeek;
-import homework6.Human;
 import homework6.Pet;
 import homework6.Species;
 import org.junit.jupiter.api.Test;

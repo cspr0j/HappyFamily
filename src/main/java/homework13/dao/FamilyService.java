@@ -1,11 +1,11 @@
-package homework12.dao;
+package homework13.dao;
 
-import homework12.Family;
-import homework12.Human.Human;
-import homework12.Human.Man;
-import homework12.Human.Woman;
-import homework12.Pets.Pet;
-import homework12.date.Converter;
+import homework13.Family;
+import homework13.Human.Human;
+import homework13.Human.Man;
+import homework13.Human.Woman;
+import homework13.Pets.Pet;
+import homework13.date.Converter;
 
 import java.text.ParseException;
 import java.util.*;
@@ -133,5 +133,13 @@ public class FamilyService {
 
     public void addFamily(Family family) {
         familyDao.saveFamily(family);
+    }
+
+    public void saveData() {
+        familyDao.saveData();
+    }
+
+    public List<Family> loadData(){
+        return familyDao.loadData();
     }
 }

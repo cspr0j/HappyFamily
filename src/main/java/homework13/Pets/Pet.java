@@ -1,14 +1,17 @@
-package homework8.Pets;
+package homework13.Pets;
 
-import homework8.Species;
+import homework13.Species;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 
-public abstract class Pet {
+public abstract class Pet implements Serializable {
+
+    private static final long serialVersionUID = -6827729749024226772L;
     static final List<String> list = new ArrayList<>();
 
     // displays only 1 time
@@ -27,7 +30,7 @@ public abstract class Pet {
         // 'auto' assigning
         if (list.contains(name)) {
             species = Species.valueOf(name);
-        }else
+        } else
             species = Species.UNKNOWN;
         System.out.println("New Pet type  object is created");
     }
@@ -101,6 +104,15 @@ public abstract class Pet {
     }
 
     public abstract void respond();
+
+    public String prettyFormat() {
+        return  "{species=" + species +
+                ", nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", trickLevel=" + trickLevel +
+                ", habits=" + habits +
+                '}';
+    }
 
     @Override
     public String toString() {

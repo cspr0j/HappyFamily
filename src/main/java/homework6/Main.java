@@ -1,7 +1,5 @@
 package homework6;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) throws Throwable {
         String[][] schedule = new String[3][2];
