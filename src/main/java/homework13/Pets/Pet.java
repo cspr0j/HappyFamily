@@ -11,8 +11,8 @@ import java.util.Set;
 
 public abstract class Pet implements Serializable {
 
-    private static final long serialVersionUID = -6827729749024226772L;
     static final List<String> list = new ArrayList<>();
+    private static final long serialVersionUID = -6827729749024226772L;
 
     // displays only 1 time
     static {
@@ -24,6 +24,12 @@ public abstract class Pet implements Serializable {
         }
     }
 
+    private Species species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private Set<String> habits;
+
     // displays each time
     {
         String name = getClass().getSimpleName().toUpperCase();
@@ -34,13 +40,6 @@ public abstract class Pet implements Serializable {
             species = Species.UNKNOWN;
         System.out.println("New Pet type  object is created");
     }
-
-
-    private Species species;
-    private String nickname;
-    private int age;
-    private int trickLevel;
-    private Set<String> habits;
 
     public Pet(String nickname) {
         this.nickname = nickname;
@@ -106,7 +105,7 @@ public abstract class Pet implements Serializable {
     public abstract void respond();
 
     public String prettyFormat() {
-        return  "{species=" + species +
+        return "{species=" + species +
                 ", nickname='" + nickname + '\'' +
                 ", age=" + age +
                 ", trickLevel=" + trickLevel +

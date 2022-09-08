@@ -14,8 +14,8 @@ import java.util.*;
 
 public class Family implements HumanCreator, Serializable {
 
-    private static final long serialVersionUID = 7796724938947432723L;
     static final Map<Integer, List<String>> names;
+    private static final long serialVersionUID = 7796724938947432723L;
 
     // displays only 1 time
     static {
@@ -23,17 +23,16 @@ public class Family implements HumanCreator, Serializable {
         System.out.println("Family class is being loaded");
     }
 
+    private Human mother;
+    private Human father;
+    private List<Human> children;
+    private Set<Pet> pet;
+    private boolean flag;
+
     // displays each time
     {
         System.out.println("New Family type  object is created");
     }
-
-    private Human mother;
-    private Human father;
-    private List<Human> children;
-
-    private Set<Pet> pet;
-    private boolean flag;
 
     public Family(Human father, Human mother) {
         this.mother = mother;
@@ -68,13 +67,13 @@ public class Family implements HumanCreator, Serializable {
         this.mother.setFamily(this);
     }
 
+    public Human getFather() {
+        return father;
+    }
+
     public void setFather(Human father) {
         this.father = father;
         this.father.setFamily(this);
-    }
-
-    public Human getFather() {
-        return father;
     }
 
     public List<Human> getChildren() {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public  class Converter implements Serializable {
+public class Converter implements Serializable {
     private static final long serialVersionUID = -4978389465146587433L;
     private final SimpleDateFormat formatForDate = new SimpleDateFormat("dd/MM/yyyy");
 

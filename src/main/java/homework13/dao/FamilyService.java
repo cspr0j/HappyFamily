@@ -53,7 +53,7 @@ public class FamilyService {
                         list.add(family);
                         System.out.println(family.prettyFormat());
                     }
-                });;
+                });
         return list;
     }
 
@@ -139,7 +139,7 @@ public class FamilyService {
         familyDao.saveData();
     }
 
-    public List<Family> loadData(){
+    public List<Family> loadData() {
         return familyDao.loadData();
     }
 }

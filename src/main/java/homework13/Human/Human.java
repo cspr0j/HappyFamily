@@ -12,26 +12,25 @@ import java.util.*;
 public class Human implements Serializable {
 
     private static final long serialVersionUID = -6961438258065614756L;
-    Converter converter = new Converter();
 
     // displays only 1 time
     static {
         System.out.println("Human class is being loaded");
     }
 
-    // displays each time
-    {
-        System.out.println("New Human type  object is created");
-    }
-
+    Converter converter = new Converter();
     private String name;
     private String surname;
     private Family family;
     private long birthDate;
     private int iq;
     private Map<String, String> schedule;
-
     private boolean flag;
+
+    // displays each time
+    {
+        System.out.println("New Human type  object is created");
+    }
 
 
     // ctors
@@ -189,9 +188,9 @@ public class Human implements Serializable {
 
     public String prettyFormat() {
         StringBuilder str = new StringBuilder();
-        if (this.getClass().getSimpleName().equals("Man") && family.isFlag()){
+        if (this.getClass().getSimpleName().equals("Man") && family.isFlag()) {
             str.append("\n\t\t\tboy: ");
-        } else if (this.getClass().getSimpleName().equals("Woman") && family.isFlag()){
+        } else if (this.getClass().getSimpleName().equals("Woman") && family.isFlag()) {
             str.append("\n\t\t\tgirl: ");
         }
         str.append("{name:'").append(name).append('\'')

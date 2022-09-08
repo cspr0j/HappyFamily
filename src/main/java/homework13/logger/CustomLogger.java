@@ -10,6 +10,7 @@ public class CustomLogger {
     private static final Logger logger = Logger.getLogger(CustomLogger.class.getName());
 
     private static FileHandler fileHandler = null;
+
     public static void info(String message) {
         try {
 

@@ -104,7 +104,7 @@ public class FamilyController {
         familyService.saveData();
     }
 
-    public List<Family> loadData(){
+    public List<Family> loadData() {
         return familyService.loadData();
     }
 }
