@@ -3,6 +3,7 @@ package homework13.logger;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class CustomLogger {
@@ -12,9 +13,10 @@ public class CustomLogger {
     private static FileHandler fileHandler = null;
 
     public static void info(String message) {
+        LogManager.getLogManager().reset();
         try {
 
-            // This block configure the logger with handler and formatter
+            // This block configures the logger with handler and formatter
             fileHandler = new FileHandler("src/main/java/homework13/files/application.log", true);
             fileHandler.setLevel(Level.INFO);
             logger.addHandler(fileHandler);
@@ -34,9 +36,10 @@ public class CustomLogger {
 
 
     public static void error(String message) {
+        LogManager.getLogManager().reset();
         try {
 
-            // This block configure the logger with handler and formatter
+            // This block configures the logger with handler and formatter
             fileHandler = new FileHandler("src/main/java/homework13/files/application.log", true);
             logger.addHandler(fileHandler);
 
